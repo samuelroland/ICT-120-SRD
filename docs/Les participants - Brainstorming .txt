@@ -2,15 +2,13 @@ ICT120: Interface graphique avec Javascript.
 
 Les participants - Brainstorming des fonctionnalités.
 
-Cette page permet de gérer la liste des participants au voyage d'étude.
-
 Les fonctionnalités tirées de la liste de moodle:
 
     Ajouter, modifier, supprimer des participants
-    Bloquer l'édition    
-    Trier les personnes en fonction de différents critères
-    Générer des acronymes
-    Renvoyer à la page personnelle sur l'intranet
+    Bloquer l'édition
+    Trier les colonnes par ordre alphabétique ou inverse.
+    Générer des acronymes automatiquement.
+    Renvoyer à la page personnelle sur l'intranet	
     Préparer un email (lien mailto) pour toutes les personnes selectionnée.
 
 Choisie en dehors de la liste:
@@ -23,3 +21,4 @@ Choisie en dehors de la liste:
 Enlevées de la liste:
 	Montrer / Cacher des éléments en fonction de filtres (âge, classe, rôle, nationalité,...)
 	Assurer que les informations entrées sont complètes et bien formées
+	Trier les personnes en fonction de différents critères
