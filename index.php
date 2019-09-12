@@ -1,5 +1,5 @@
 <?php
-print_r($_POST);
-?>
+print("<pre>".print_r($_POST,true)."</pre>");
+ ?>
 <br>
 <a href="form.html">Retour au formulaire</a>
