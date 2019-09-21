@@ -5,7 +5,7 @@ Les participants - Brainstorming des fonctionnalités.
 Les fonctionnalités tirées de la liste de moodle:
 
     Ajouter, modifier, supprimer des participants
-    Bloquer l'édition
+    Bloquer l'édition du tableau.
     Trier les colonnes par ordre alphabétique ou inverse.
     Générer des acronymes automatiquement.
     Renvoyer à la page personnelle sur l'intranet	
@@ -16,7 +16,7 @@ Choisie en dehors de la liste:
 	Afficher un message pour indiquer le nombre d'erreurs à traiter.
 	Enregistrer les modifications seulement lorsque tout est valide.
 	Annuler toutes les modifications de données.
-	Montrer / Cacher des colonnes (checkbox pour choisir)
+	Montrer / Cacher des colonnes (checkbox pour choisir les colonnes qu'on veut afficher)
 
 Enlevées de la liste:
 	Montrer / Cacher des éléments en fonction de filtres (âge, classe, rôle, nationalité,...)
