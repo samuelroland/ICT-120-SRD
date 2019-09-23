@@ -7,11 +7,56 @@
 <body>
 <form action="/" method="post">
     First name:<br>
-    <input type="text" name="firstname" value="Mickey"><br>
+    <input type="text" id="txtFirstname" name="firstname" value="Mickey"><br>
     Last name:<br>
     <input type="text" name="lastname" value="Mouse"><br><br>
+
+    Je suis un terroriste <input id="chkTerrorist" type="checkbox" name="terrorist"><br><br>
     <input type="submit" value="Submit">
 </form>
 
 </body>
+<script>
+    function chkTerroristClick() {
+        if (chkTerrorist.checked){
+            alert("Call the CIA !!! because "+txtFirstname.value + " is a terrorist")
+        }
+
+    }
+
+    function warning() {
+        alert("Attention")
+    }
+
+    chkTerrorist.addEventListener('click', chkTerroristClick)
+
+
+    function hello(name, age) {
+        if (age >= 18) {
+            alert("Bonjour Monsieur " + name)
+            return true
+        } else {
+            alert("Salut " + name)
+            return false
+        }
+    }
+/*
+    alert("Je te dis Tcho ");
+    console.log(hello("Marwan", 26))
+    console.log(hello("luis", 12))
+    /*
+    firstname = "Berthe"
+    age = prompt("Quel age a " + firstname + " ?")
+    for (i = 16; i < 25; i++) {
+
+        if (i > 18) {
+            alert("Bonjour madame " + firstname + "(" + i + ")")
+        } else {
+            alert("Bonjour Mademoiselle " + firstname + "(" + i + ")")
+        }
+    }
+
+
+     */
+</script>
 </html>
