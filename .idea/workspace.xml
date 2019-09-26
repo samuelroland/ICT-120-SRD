@@ -28,9 +28,15 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="HTML" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="last_opened_file_path" value="C:/tools/php73/php.exe" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\ICT-120-SRD\Exercices\02_Soumission-du-formulaire" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -64,6 +70,7 @@
       <workItem from="1567685002296" duration="55000" />
       <workItem from="1568294999255" duration="4135000" />
       <workItem from="1569240033633" duration="6714000" />
+      <workItem from="1569509574789" duration="11000" />
     </task>
     <servers />
   </component>
