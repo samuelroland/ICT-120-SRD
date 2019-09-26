@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form>
+
+    <input id="inpText" type="text" name="qqch" value=""/>
+
+    <input id="inpSubmit" type="submit" value="GO"/>
+
+</form>
+
+</body>
+<script>
+    //Déclaration de l'évenement click pour l'objet inpSubmit
+    inpSubmit.addEventListener("click", inpSubmitOnClick)
+
+	//fonction qui sera lancée à l'évenement click sur le bouton inpSubmit:
+    function inpSubmitOnClick(message) {
+        alert(inpText.value)
+    }
+
+</script>
+
+</html>
