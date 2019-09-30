@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Premiers pas en js</title>
+    <style>
+        div {
+            padding : 5px;
+            margin: 5px;
+            border: solid 1px black;
+            width: fit-content;
+        }
+
+        .stdiv1 {
+            background-color: lightblue;
+            text-decoration: line-through;
+        }
+    </style>
+
+</head>
+<body id="body">
+<h2>1. Ajouter/enlever du CSS</h2>
+<div id="div1" name="div1">Cette div doit avoir un fond bleu et son texte 'tracé' après qu'on lui aie cliqué dessus</div>
+<h2>2. Ajouter/enlever du CSS</h2>
+<div id="div2">La div ci-dessus redevient normale quand on clique sur ce texte</div>
+<h2>3. Gérer les événements</h2>
+<div id="div3">Ce texte doit être en police Arial quand la souris le survole</div>
+<h2>4. Détruire / Ajouter des éléments</h2>
+<div>
+    Cette div devient un gros 'YES' en blanc sur fond vert quand les deux checkboxes dessous sont cochées.<br>
+    <input type="checkbox"></input><input type="checkbox"></input>
+</div>
+<h2>5. Détruire / Ajouter des éléments</h2>
+<div>
+    Quand on clique sur ce texte, ça détruit
+    <div>cette div</div>
+</div>
+<h2>6. Gérer la valeur d'un élément du DOM</h2>
+<div>
+    Quand l'utilisateur tape son nom, le champ initiales se remplit automatiquement
+    <form>
+        Nom: <input name="txtName" type="text"><br>
+        Initiales: <input name="txtInitials" type="text"><br>
+        <input type="submit" value="Ok">
+    </form>
+</div>
+<h2>7. Modifier des attributs d'éléments, Utiliser un timer, Cacher/Montrer un élément</h2>
+<div>
+    Gérez la séquence de départ:
+    <ul>
+        <li>Le bouton 'A vos marques' est actif, le bouton 'Prêt' est désactivé, le bouton 'Partez' est invisible</li>
+        <li>Clic sur 'A vos marques'
+            <ul>
+                <li>Le bouton 'A vos marques' est désactivé</li>
+                <li>Le bouton 'Prêt' est actif</li>
+                <li>Le bouton 'Partez' est désactivé</li>
+                <li>L'image est 'marks.png</li>
+            </ul>
+        </li>
+        <li>Clic sur 'Prêt'
+            <ul>
+                <li>Le bouton 'A vos marques' est invisible</li>
+                <li>Le bouton 'Prêt' est désactivé</li>
+                <li>Le bouton 'Partez' est actif</li>
+                <li>L'image est 'set.png</li>
+            </ul>
+        </li>
+        <li>Clic sur 'Partez'
+            <ul>
+                <li>Le bouton 'A vos marques' est invisible</li>
+                <li>Le bouton 'Prêt' est invisible</li>
+                <li>Le bouton 'Partez' est désactivé</li>
+                <li>L'image est 'go.png</li>
+                <li>Après 3 secondes:
+                    <ul>
+                        <li>L'image revient à 'empty.png'</li>
+                        <li>Le bouton 'A vos marques' est actif</li>
+                        <li>Le bouton 'Prêt' est désactivé</li>
+                        <li>Le bouton 'Partez' est invisible</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <button>A vos marques</button>
+    <button>Prêt</button>
+    <button>Partez</button><br>
+    <img src="empty.png">
+</div>
+</body>
+<script type="text/javascript" src="js/logique.js"></script>
+</html>
