@@ -1,0 +1,15 @@
+div {
+    padding : 5px;
+    margin: 5px;
+    border: solid 1px black;
+    width: fit-content;
+}
+
+.stdiv1 {
+    background-color: lightblue;
+    text-decoration: line-through;
+}
+.stdiv4{
+    color: white;
+    background-color: green;
+}

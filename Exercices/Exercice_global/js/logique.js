@@ -47,7 +47,7 @@ function detruirediv() {
 
 //Exo 6:
 
-//ajouter levenement keyup (quand une touche remonte):
+//ajouter l'evenement keyup (quand une touche remonte):
 inpName.addEventListener("keyup", createinitials)
 
 function createinitials() {
@@ -57,12 +57,31 @@ function createinitials() {
     initials = inpName.value.substring(0, 1)
     if (inpName.value.indexOf(" ") != -1) {    //si il y a un espace alors on peut calculer la suite des lettres:
         //prendre la première lettre après l'espace pour avoir la deuxieme lettre des initiales
-        initials += inpName.value.substring(inpName.value.indexOf(" ") + 1, inpName.value.indexOf(" ") + 2)
+        initials += inpName.value.substr(inpName.value.lastIndexOf(" ") + 1, 1)
 
         if (inpName.value.indexOf(" ") + 2 < inpName.value.length) { //si il y a deux caractères après l'espace:
-            initials += inpName.value.substring(inpName.value.length - 1, inpName.value.length)   //ajouter 3eme lettre.
+            initials += inpName.value.substr(inpName.value.length - 1, 1)   //ajouter 3eme lettre.
         }
     }
     initials = initials.toUpperCase()   //Mettre la chaine en majuscule
     inpInitials.value = initials    //afficher dans la textbox.
+}
+
+//Exo 7:
+
+
+form2.addEventListener("formload", chargerbtns)
+inpAvm.addEventListener("click", AvmClick)
+
+function chargerbtns() {
+    inpPret.disabled = true
+    inpPartez.style.display = "none"
+
+
+}
+function AvmClick(){
+    inpAvm.style.display="none"
+    inpPret.disabled=true
+    inpPartez.disabled = false
+
 }

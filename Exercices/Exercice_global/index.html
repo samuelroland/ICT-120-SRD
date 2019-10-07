@@ -3,23 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Premiers pas en js</title>
-    <style>
-        div {
-            padding : 5px;
-            margin: 5px;
-            border: solid 1px black;
-            width: fit-content;
-        }
-
-        .stdiv1 {
-            background-color: lightblue;
-            text-decoration: line-through;
-        }
-        .stdiv4{
-            color: white;
-            background-color: green;
-        }
-    </style>
+    <link rel="stylesheet" href="style/style.css">
 
 </head>
 <body id="body">
@@ -86,10 +70,13 @@
             </ul>
         </li>
     </ul>
-    <button>A vos marques</button>
-    <button>Prêt</button>
-    <button>Partez</button><br>
-    <img src="empty.png">
+    <form id="form2" action="">
+        <button id="inpAvm">A vos marques</button>
+        <button id="inpPret">Prêt</button>
+        <button id="inpPartez">Partez</button><br>
+        <img id="imgDepart" src="empty.png">
+    </form>
+
 </div>
 </body>
 <script type="text/javascript" src="js/logique.js"></script>
