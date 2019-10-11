@@ -51,7 +51,7 @@ function detruirediv() {
 inpName.addEventListener("keyup", createinitials)
 
 function createinitials() {
-    //Permet de générer les initiales au format CPNV = Première lettre du prénom + Première lettre du nom + Dernière lettre du nom.
+    //Permet de générer les initiales au format CPNV = Première lettre du prénom + Première lettre du nom + Dernière lettre du nom. Nom de famille sera le dernier présent.
 
     //prendre le premier caractère pour la première lettre des initiales.
     initials = inpName.value.substring(0, 1)
@@ -59,7 +59,7 @@ function createinitials() {
         //prendre la première lettre après l'espace pour avoir la deuxieme lettre des initiales
         initials += inpName.value.substr(inpName.value.lastIndexOf(" ") + 1, 1)
 
-        if (inpName.value.indexOf(" ") + 2 < inpName.value.length) { //si il y a deux caractères après l'espace:
+        if (inpName.value.lastIndexOf(" ") + 2 < inpName.value.length) { //si il y a deux caractères après l'espace:
             initials += inpName.value.substr(inpName.value.length - 1, 1)   //ajouter 3eme lettre.
         }
     }
@@ -67,21 +67,48 @@ function createinitials() {
     inpInitials.value = initials    //afficher dans la textbox.
 }
 
+
 //Exo 7:
 
-
-form2.addEventListener("formload", chargerbtns)
 inpAvm.addEventListener("click", AvmClick)
+
+inpPret.addEventListener("click", PretClick)
+
+inpPartez.addEventListener("click", PartezClick)
 
 function chargerbtns() {
     inpPret.disabled = true
     inpPartez.style.display = "none"
+    imgCourse.src = "empty.png"
 
-
+    //a part la première fois il faut réafficher les boutons cachés:
+    inpPret.style.display= "inline"
+    inpAvm.style.display= "inline"
+    inpAvm.disabled=false
 }
-function AvmClick(){
-    inpAvm.style.display="none"
+inpPret.disabled = true
+inpPartez.style.display = "none"
+imgCourse.src = "empty.png"
+
+function AvmClick() {
+    inpAvm.disabled = true
+    inpPret.disabled = false
+    inpPartez.style.display="inline"  //il faut l'afficher en plus sinon on ne le voit pas.
+    inpPartez.disabled = true
+    imgCourse.src = "marks.png"
+}
+
+function PretClick(){
+    inpAvm.style.display = "none"
     inpPret.disabled=true
     inpPartez.disabled = false
+    imgCourse.src = "set.png"
+}
 
+function PartezClick(){
+    inpAvm.style.display = "none"
+    inpPret.style.display = "none"
+    inpPartez.disabled=true
+    imgCourse.src = "go.png"
+    setInterval("chargerbtns()", 3)
 }
