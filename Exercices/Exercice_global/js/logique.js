@@ -86,9 +86,9 @@ function chargerbtns() {
     inpAvm.style.display= "inline"
     inpAvm.disabled=false
 }
-inpPret.disabled = true
-inpPartez.style.display = "none"
-imgCourse.src = "empty.png"
+
+//se lance à la lecture du code. charger les boutons au démarrage.
+chargerbtns()
 
 function AvmClick() {
     inpAvm.disabled = true
@@ -110,5 +110,5 @@ function PartezClick(){
     inpPret.style.display = "none"
     inpPartez.disabled=true
     imgCourse.src = "go.png"
-    setInterval("chargerbtns()", 3)
+    setTimeout("chargerbtns()", 3000)
 }
