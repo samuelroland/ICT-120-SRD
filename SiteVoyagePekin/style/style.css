@@ -49,3 +49,16 @@ p{
     text-align: left;
     font-size: 18px;
 }
+
+#tableau{
+    width: 100%;
+    border: solid green 1px;
+    border-collapse: collapse;
+}
+td, th{
+    border: solid black 2px;
+}
+
+th{
+    background-color: aqua;
+}

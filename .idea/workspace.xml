@@ -29,7 +29,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="CSS&#10;HTML" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="HTML&#10;CSS" />
     <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -83,7 +83,7 @@
       <workItem from="1570961549550" duration="1463000" />
       <workItem from="1570986840269" duration="2249000" />
       <workItem from="1572267668438" duration="6060000" />
-      <workItem from="1572532249757" duration="261000" />
+      <workItem from="1572532249757" duration="4862000" />
     </task>
     <servers />
   </component>
