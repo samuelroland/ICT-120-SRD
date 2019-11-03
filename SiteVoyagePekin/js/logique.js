@@ -9,22 +9,32 @@ age.addEventListener("click", prenomclick)
 
 //constantes valeurs chars spéciaux:
 flhautbas = "&varr;"
-flhaut = "&darr;"
-flbas = ""
+flhaut = "&uarr;"
+flbas = "&darr;"
 
-function prenomclick(objecttxt) {
+function prenomclick(event) {
 
-    test = objecttxt.target //prendre l'objet qui a déclenché l'évenement.
-    test.innerHTML = test.innerHTML.substring(0, test.innerHTML.indexOf(" ") + 1)
+    obj = event.target //prendre l'objet qui a déclenché l'évenement.
+    //obj.innerHTML = obj.innerHTML.substring(0, obj.innerHTML.indexOf(" ") + 1)
     //Ajouter flèche hautbas, haut, bas.
-    if (test.innerHTML.indexOf(flhautbas)) {
-        test.innerHTML += flhaut
+
+    if (obj.innerHTML.includes(flbas)) {
+        obj.innerHTML = obj.innerHTML.substring(0, obj.innerHTML.indexOf(" ") + 1)
+        obj.innerHTML += flhautbas
+
     }
-    if (test.innerHTML.indexOf(flhaut)) {
-        test.innerHTML += flbas
+    if (obj.innerHTML.includes(flhaut)) {
+        obj.innerHTML = obj.innerHTML.substring(0, obj.innerHTML.indexOf(" ") + 1)
+        obj.innerHTML += flbas
     }
-    if (test.innerHTML.indexOf(flbas)) {
-        test.innerHTML += flhautbas
+    if (obj.innerHTML.includes(flhautbas)) {
+        obj.innerHTML = obj.innerHTML.substring(0, obj.innerHTML.indexOf(" ") + 1)
+        obj.innerHTML += flhaut
     }
+
 }
+
+testtxtbox.value = "cool"
+testtxtbox.disabled=false
+console.log(document.getElementsByTagName("input"))
 
