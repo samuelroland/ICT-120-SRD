@@ -19,18 +19,26 @@ Date: octobre 2019
     <script src="bootstrap/dist/js/bootstrap.js"></script>
 </head>
 <body>
-
-<div id="logo">
-    <img id="logocpnv" src="img/logocpnv.png" alt="">
+<header class="row">
+    <div id="logo" class="col-3">
+        <img id="logocpnv" src="img/logocpnv.png" alt="">
+    </div>
+    <div id="links" class="col-9"><a href="https://www.cpnv.ch">Site du CPNV</a> | <a href="https://www.facebook.com/cpnv">Page Facebook du voyage</a></div>
+</header>
+<div id="menu" class="row">
+    <div class="col-2 backgnd"><a href="index.html">Accueil</a></div>
+    <div class="col-2 backgnd"><a href="participants.html">Participants</a></div>
+    <div class="col-2 backgnd"><a href="transports.html">Transports</a></div>
+    <div class="col-2 backgnd"><a href="activites.html">Activités</a></div>
+    <div class="col-2 backgnd"><a href="hebergemement.html">Hébergement</a></div>
 </div>
-<div id="links">Raccourcis</div>
-<div id="menu">Menu</div>
 <div id="content">
     <h1>Gestion des participants</h1>
     <p>Texte temporaire à corriger:
         Tout d'abord, pour un voyage on a besoin de savoir qui pourra venir. C'est donc sur cette page que la gestion des utilisateurs se fait. Il est possible de rajouter des personnes, de les modifier mais aussi des les supprimer. Pour simplifier la vue des utilisateurs, il est possible de n'afficher que certaines colonnes du tableau, de trier les colonnes.
         Avant de pouvoir sauvegarder, il faut corriger toutes les erreurs dues à des données invalides ou manquantes.
     </p>
+    <input type="button" value="nouvelle colonne" id="bnnewrow">
     <table id="tableau">
         <thead>
         <tr>
@@ -43,37 +51,7 @@ Date: octobre 2019
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>Marco<input type="textbox"></td>
-            <td>zia</td>
-            <td>14</td>
-            <td>MZA</td>
-            <td>intranet.cpnv.ch</td>
 
-        </tr>
-        <tr>
-            <td>Samuel<input type="textbox"></td>
-            <td>Roland</td>
-            <td>12</td>
-            <td>SRD</td>
-            <td>intranet.cpnv.ch</td>
-
-        </tr>
-        <tr>
-            <td><input type="text" class="tbltxt" ></td>
-            <td>pierrt</td>
-            <td>17</td>
-            <td>BPT</td>
-            <td>intranet.cpnv.ch</td>
-        </tr>
-        <tr>
-            <td>jean</td>
-            <td>Roland</td>
-            <td>13</td>
-            <td>JRD</td>
-            <td>intranet.cpnv.ch</td>
-
-        </tr>
         </tbody>
     </table>
 </div>
