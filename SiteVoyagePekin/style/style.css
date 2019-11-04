@@ -98,3 +98,7 @@ label{
 #btnlist{
     text-align: right;
 }
+
+.showmodifiable:hover{
+    background-color: lightgrey;
+}

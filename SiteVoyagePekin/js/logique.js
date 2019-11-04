@@ -44,11 +44,9 @@ function newrow(){
     zonecols.appendChild(row)
     for (i=0;i<tableau.rows[0].cells.length;i++){
         cell = document.createElement("td")
-        txt = document.createElement("input")
-        txt.type = "textbox"
-        cell.appendChild(txt)
+        cell.id = i+":"+tableau.rows.length
         row.appendChild(cell)
-        txt.value = ("cell:" + i + " line:"+ tableau.rows.length)
+        cell.innerText = (cell.id+ "salut")
         cell.style.height = 10
     }
 
@@ -80,5 +78,26 @@ submit.addEventListener("click", gerercolonnes)
 
 function gerercolonnes(){
     submit.style.backgroundColor = red
-    tableau.rows[0][1].cells.style.display = "none"
+    tableau.rows[0].cells.delete();
+}
+
+active=false
+bnactiveredition.addEventListener("click", activeedition)
+
+function activeedition(){
+    tds = tableau.getElementsByTagName("td")
+    if (active==false){
+        tableau.classList.remove("table", "table-hover", "table-bordered", "table-striped")
+        for ( i=0;i<5;i++){
+            for (j=0; j<nbslinetbl;j++){
+
+            }
+        } 
+        
+        active = true
+    } else  {
+        tableau.classList.add("table", "table-hover", "table-bordered", "table-striped")
+        active = false
+    }
+
 }
