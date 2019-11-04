@@ -23,7 +23,8 @@ Date: octobre 2019
     <div id="logo" class="col-3">
         <img id="logocpnv" src="img/logocpnv.png" alt="">
     </div>
-    <div id="links" class="col-9"><a href="https://www.cpnv.ch">Site du CPNV</a> | <a href="https://www.facebook.com/cpnv">Page Facebook du voyage</a></div>
+    <div id="links" class="col-9"><a href="https://www.cpnv.ch">Site du CPNV</a> | <a
+            href="https://www.facebook.com/cpnv">Page Facebook du voyage</a></div>
 </header>
 <div id="menu" class="row">
     <div class="col-2 backgnd"><a href="index.html">Accueil</a></div>
@@ -33,16 +34,41 @@ Date: octobre 2019
     <div class="col-2 backgnd"><a href="hebergemement.html">Hébergement</a></div>
 </div>
 <div id="content">
-    <h1>Gestion des participants</h1>
+    <h1 class="center">Gestion des participants</h1>
     <p>Texte temporaire à corriger:
-        Tout d'abord, pour un voyage on a besoin de savoir qui pourra venir. C'est donc sur cette page que la gestion des utilisateurs se fait. Il est possible de rajouter des personnes, de les modifier mais aussi des les supprimer. Pour simplifier la vue des utilisateurs, il est possible de n'afficher que certaines colonnes du tableau, de trier les colonnes.
+        Tout d'abord, pour un voyage on a besoin de savoir qui pourra venir. C'est donc sur cette page que la gestion
+        des utilisateurs se fait. Il est possible de rajouter des personnes, de les modifier mais aussi des les
+        supprimer. Pour simplifier la vue des utilisateurs, il est possible de n'afficher que certaines colonnes du
+        tableau, de trier les colonnes.
         Avant de pouvoir sauvegarder, il faut corriger toutes les erreurs dues à des données invalides ou manquantes.
     </p>
-    <input type="button" value="nouvelle colonne" id="bnnewrow">
+
+    <!-- Options de l'affichage -->
+    <div id="optaff ">
+        <h5>Options de l'affichage</h5>
+        <form action="">
+            <p>Les colonnes</p>
+            <input type="checkbox" name="chkPrenom" id="chkPrenom" checked>
+            <label for="chkPrenom">Prénom</label><br>
+            <input type="checkbox" class="chk" name="chkNom" id="chkNom" checked>
+            <label for="chkNom">Nom</label><br>
+            <input type="checkbox" class="chk" name="chkAge" id="chkAge" checked>
+            <label for="chkAge">Age</label> <br>
+            <input type="checkbox" class="chk" name="chkAcro" id="chkAcro" checked>
+            <label for="chkAcro">Acronyme (généré)</label> <br>
+            <input type="checkbox" class="chk" name="chkIntra" id="chkIntra" checked>
+            <label for="chkIntra">Page intranet</label> <br>
+            <input type="checkbox" class="chk" name="chkSelect" id="chkSelect">
+            <label for="chkSelect">Selection</label> <br>
+            <input id="submit" type="submit">
+        </form>
+    </div>
+    <input type="button" class="center col-4" value="Activer l'édition" id="bnactiveredition">
+    <input type="button" class="center" value="nouvelle colonne" id="bnnewrow">
     <table id="tableau">
         <thead>
         <tr>
-            <th id="prenom" type="input">Prénom &varr;</th>
+            <th id="prenom">Prénom &varr;</th>
             <th id="nom">Nom &varr;</th>
             <th id="age">Age &varr;</th>
             <th id="acro">Acronyme</th>
@@ -54,6 +80,14 @@ Date: octobre 2019
 
         </tbody>
     </table>
+    <div id="btnlist">
+        <input type="button" class="center col-3" value="Envoyer un email à la sélection" id="bnEmail">
+        <input type="button" class="center col-2" value="Supprimer les participants" id="bnDelete">
+        <input type="button" class="center col-2" value="Annuler" id="bnCancel">
+        <input type="button" class="center col-2" value="Sauvegarder" id="bnSave">
+    </div>
+
+
 </div>
 </body>
 <!--Lien javascript: -->

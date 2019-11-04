@@ -74,3 +74,11 @@ function activateedition(){
         }
     }
 }
+
+
+submit.addEventListener("click", gerercolonnes)
+
+function gerercolonnes(){
+    submit.style.backgroundColor = red
+    tableau.rows[0][1].cells.style.display = "none"
+}
