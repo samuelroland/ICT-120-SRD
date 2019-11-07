@@ -46,8 +46,13 @@ function newrow() {
         cell = document.createElement("td")
         cell.id = i + ":" + tableau.rows.length
         row.appendChild(cell)
-        cell.innerText = (cell.id + "")
+        cell.innerText = (cell.id)
         cell.style.height = 10
+
+        //Ecraser par une checkbox
+        if (cell.tHead.innerText=="Sélection"){
+            cell.innerText = "salut"
+        }
     }
 
 }
@@ -62,20 +67,6 @@ function updateinfostable() {
 
 console.log(document.getElementsByTagName("input"))
 
-function activateedition() {
-    //mettre tout les champs input txtbox des colonnes prénom, nom et age en disabled=false
-    for (i = 0; i < nbscolstbl; i++) {
-        for (j = 0; j < nbslinetbl; j++) {
-
-        }
-        for (var cool in tableau.rows[i].cells) {
-            cool.disabled = true
-            console.log(cool.value)
-        }
-    }
-}
-
-
 submit.addEventListener("click", gerercolonnes)
 
 function gerercolonnes() {
@@ -85,40 +76,46 @@ function gerercolonnes() {
 
 active = false
 bnactiveredition.addEventListener("click", activeedition)
-
+intrapathstudent = "https://intranet.cpnv.ch/etudiants/"
 
 function activeedition() {
+    bnactiveredition.disabled = true
+    bnSave.disabled = false
     tds = tableau.getElementsByTagName("td")
-    if (active == false) {
+    tableau.classList.remove("table", "table-hover", "table-bordered", "table-striped")
 
-        tableau.classList.remove("table", "table-hover", "table-bordered", "table-striped")
+    for (nbline = 0; nbline < cortable.children.length; nbline++) {
+        row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
+        for (nbcol = 0; nbcol < row.children.length; nbcol++) {
+            cell = row.children[nbcol]
 
-        for (nbline = 0; nbline < cortable.children.length; nbline++) {
-            row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
-            for (nbcol = 0; nbcol < row.children.length; nbcol++) {
-                cell = row.children[nbcol]
-                inp = document.createElement("input")
-                inp.type = "text"
-                inp.value = cell.innerText
-                cell.innerText = ""
-                cell.appendChild(inp)
-            }
+            inp = document.createElement("input")
+            inp.type = "text"
+            inp.value = cell.innerText
+            cell.innerText = ""
+            cell.appendChild(inp)
+
+
         }
-
-        active = true
-    } else {
-        tableau.classList.add("table", "table-hover", "table-bordered", "table-striped")
-
-        for (nbline = 0; nbline < cortable.children.length; nbline++) {
-            row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
-            for (nbcol = 0; nbcol < row.children.length; nbcol++) {
-                cell = row.children[nbcol]
-                cell.innerHTML = cell.firstChild.value
-            }
-        }
-        active = false
     }
 
+
+}
+
+bnSave.addEventListener("click", save)
+
+function save() {
+    bnactiveredition.disabled = false
+    bnSave.disabled = true
+    tableau.classList.add("table", "table-hover", "table-bordered", "table-striped")
+
+    for (nbline = 0; nbline < cortable.children.length; nbline++) {
+        row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
+        for (nbcol = 0; nbcol < row.children.length; nbcol++) {
+            cell = row.children[nbcol]
+            cell.innerHTML = cell.firstChild.value
+        }
+    }
 }
 
 chkPrenom.addEventListener("click", chkclick)
@@ -138,4 +135,35 @@ function chkclick(event) {
         document.getElementById(colref).hidden = false
     }
 
+}
+
+bnEmail.addEventListener("click", sendemail)
+
+function sendemail() {
+    adresses = tableau.rows[1].cells[0].value + "." + tableau.rows[1].cells[1].value + "@cpnv.ch"
+    //si des cases sont cochées dans le tableau
+    window.location.href = "mailto:" + adresses + "?subject=Voyage du CPNV à Pékin"
+}
+
+bnDelete.addEventListener("click", deleteline)
+
+function deleteline() {
+    for (nbline = 0; nbline < cortable.children.length; nbline++) {
+        row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
+        for (nbcol = 0; nbcol < row.children.length; nbcol++) {
+            cell = row.children[nbcol]
+            console.log(cell.id)
+            inp = cell.firstChild
+            if (inp.type == "checkbox") {
+                if (inp.checked == true) {
+                    //Supprimer la ligne en prenant le arrière grand parent.
+                    td = inp.parentNode
+                    tr = td.parentNode
+                    tbody = tr.parentNode
+                    tbody.removeChild(tr)
+                }
+            }
+
+        }
+    }
 }

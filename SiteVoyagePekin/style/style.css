@@ -15,7 +15,7 @@ body{
 }
 
 .center, thead {
-    font-size: 30px;
+    font-size: 15px;
     text-align: center;
 }
 .chk{
@@ -61,7 +61,8 @@ p {
 }
 
 #tableau {
-    width: 100%;
+    width: 80%;
+    margin: auto;
     border: solid green 1px;
     border-collapse: collapse;
 }
@@ -105,4 +106,8 @@ label{
 }
 .showmodifiable{
     background: red;
+}
+
+table input{
+    width: 100%;
 }
