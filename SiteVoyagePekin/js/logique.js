@@ -1,16 +1,34 @@
 /*
-Projet: code Javascript du site du voyage à Pékin
+Projet: code Javascript du site du voyage à Pékin page participants uniquement
 Auteur: Samuel Roland
-Date: octobre 2019
+Date: octobre-novembre 2019
 */
-prenom.addEventListener("click", prenomclick)
-nom.addEventListener("click", prenomclick)
-age.addEventListener("click", prenomclick)
-
 
 document.addEventListener("DOMContentLoaded", init)
 
 function init() {
+
+    //Définition de tous les évenements, après le chargement de la page:
+
+    prenom.addEventListener("click", prenomclick)
+    nom.addEventListener("click", prenomclick)
+    age.addEventListener("click", prenomclick)
+
+    chkPrenom.addEventListener("click", chkclick)
+    chkNom.addEventListener("click", chkclick)
+    chkAge.addEventListener("click", chkclick)
+    chkAcro.addEventListener("click", chkclick)
+    chkIntra.addEventListener("click", chkclick)
+    chkSelect.addEventListener("click", chkclick)
+
+    bnactiveredition.addEventListener("click", activeedition)
+
+    bnnewrow.addEventListener("click", newrow)
+    bnSave.addEventListener("click", save)
+    bnDelete.addEventListener("click", deleteline)
+    bnEmail.addEventListener("click", sendemail)
+
+
     //Désactivation des boutons:
     bnDelete.disabled = true
     bnCancel.disabled = true
@@ -55,7 +73,6 @@ function prenomclick(event) {
 
 }
 
-bnnewrow.addEventListener("click", newrow)
 
 function newrow() {
     zonecols = document.getElementsByTagName("tbody")[0]
@@ -120,7 +137,6 @@ function updateinfostable() {
 console.log(document.getElementsByTagName("input"))
 
 active = false
-bnactiveredition.addEventListener("click", activeedition)
 intrapathstudent = "https://intranet.cpnv.ch/etudiants/"
 
 function activeedition() {
@@ -153,7 +169,6 @@ function activeedition() {
     }
 }
 
-bnSave.addEventListener("click", save)
 
 function save() {
 
@@ -178,13 +193,6 @@ function save() {
     }
 }
 
-chkPrenom.addEventListener("click", chkclick)
-chkNom.addEventListener("click", chkclick)
-chkAge.addEventListener("click", chkclick)
-chkAcro.addEventListener("click", chkclick)
-chkIntra.addEventListener("click", chkclick)
-chkSelect.addEventListener("click", chkclick)
-
 function chkclick(event) {
     obj = event.target
     colref = obj.name.substr(obj.name.indexOf("chk") + 3).toLowerCase()
@@ -197,15 +205,11 @@ function chkclick(event) {
 
 }
 
-bnEmail.addEventListener("click", sendemail)
-
 function sendemail() {
     adresses = tableau.rows[1].cells[0].value + "." + tableau.rows[1].cells[1].value + "@cpnv.ch"
     //si des cases sont cochées dans le tableau
     window.location.href = "mailto:" + adresses + "?subject=Voyage du CPNV à Pékin"
 }
-
-bnDelete.addEventListener("click", deleteline)
 
 function deleteline() {
     for (nbline = 0; nbline < cortable.children.length; nbline++) {
