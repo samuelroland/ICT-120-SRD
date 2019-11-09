@@ -198,9 +198,9 @@ function chkclick(event) {
     colref = obj.name.substr(obj.name.indexOf("chk") + 3).toLowerCase()
 
     if (obj.checked === false) {
-        document.getElementById(colref).hidden = true
+        document.getElementById(colref).classList.add("d-none")
     } else {
-        document.getElementById(colref).hidden = false
+        document.getElementById(colref).classList.remove("d-none")
     }
 
 }
