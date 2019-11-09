@@ -46,33 +46,32 @@ Date: octobre 2019
     <!-- Options de l'affichage -->
     <div id="optaff ">
         <h5>Options de l'affichage</h5>
-        <form action="">
-            <p>Les colonnes</p>
-            <input type="checkbox" name="chkPrenom" id="chkPrenom" checked>
-            <label for="chkPrenom">Prénom</label><br>
-            <input type="checkbox" class="chk" name="chkNom" id="chkNom" checked>
-            <label for="chkNom">Nom</label><br>
-            <input type="checkbox" class="chk" name="chkAge" id="chkAge" checked>
-            <label for="chkAge">Age</label> <br>
-            <input type="checkbox" class="chk" name="chkAcro" id="chkAcro" checked>
-            <label for="chkAcro">Acronyme (généré)</label> <br>
-            <input type="checkbox" class="chk" name="chkIntra" id="chkIntra" checked>
-            <label for="chkIntra">Page intranet</label> <br>
-            <input type="checkbox" class="chk" name="chkSelect" id="chkSelect" checked>
-            <label for="chkSelect">Sélection</label> <br>
-            <input id="submit" type="button" value="envoyer">
-        </form>
+
+        <p>Les colonnes</p>
+        <input type="checkbox" name="chkPrenom" id="chkPrenom" checked>
+        <label for="chkPrenom">Prénom</label><br>
+        <input type="checkbox" class="chk" name="chkNom" id="chkNom" checked>
+        <label for="chkNom">Nom</label><br>
+        <input type="checkbox" class="chk" name="chkAge" id="chkAge" checked>
+        <label for="chkAge">Age</label> <br>
+        <input type="checkbox" class="chk" name="chkAcro" id="chkAcro" checked>
+        <label for="chkAcro">Acronyme (généré)</label> <br>
+        <input type="checkbox" class="chk" name="chkIntra" id="chkIntra" checked>
+        <label for="chkIntra">Page intranet</label> <br>
+        <input type="checkbox" class="chk" name="chkSelect" id="chkSelect" checked>
+        <label for="chkSelect">Sélection</label> <br>
+
     </div>
     <input type="button" class="center col-4" value="Activer l'édition" id="bnactiveredition">
     <input type="button" class="center" value="nouvelle ligne" id="bnnewrow">
     <table id="tableau" class="table table-bordered table-hover table-striped">
         <thead>
         <tr>
-            <th id="prenom" >Prénom &varr;</th>
+            <th id="prenom">Prénom &varr;</th>
             <th id="nom">Nom &varr;</th>
             <th id="age">Age &varr;</th>
             <th id="acro">Acronyme</th>
-            <th id="intra" >Page intranet</th>
+            <th id="intra">Page intranet</th>
             <th id="select">Sélection</th>
 
         </tr>
@@ -83,7 +82,7 @@ Date: octobre 2019
     </table>
     <div id="btnlist">
         <input type="button" class="center col-3" value="Envoyer un email à la sélection" id="bnEmail">
-        <input type="button" class="center col-2" value="Supprimer les participants" id="bnDelete">
+        <input type="button" class="center col-2" value="Supprimer les participants" id="bnDelete" disabled>
         <input type="button" class="center col-2" value="Annuler" id="bnCancel">
         <input type="button" class="center col-2" value="Sauvegarder" id="bnSave" disabled>
     </div>

@@ -23,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3" />
   <component name="ProjectId" id="1PxuL57KW0LZ2CDvDXeR6PjGCaJ" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -33,16 +33,16 @@
     <property name="ignore.virus.scanning.warn.message" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xamppinstallation\xampp\ICT-120-SRD\SiteVoyagePekin\js" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\ICT-120-SRD\Exercices\Exercice_global\style" />
       <recent name="C:\xampp\ICT-120-SRD\Exercices\Exercice_global" />
       <recent name="C:\xampp\ICT-120-SRD\Exercices\02_Soumission-du-formulaire" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xamppinstallation\xampp\ICT-120-SRD\SiteVoyagePekin\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -58,7 +58,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="ICT-120" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="8081">
+    <configuration name="ICT-120" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="8082">
       <method v="2" />
     </configuration>
   </component>
@@ -98,6 +98,8 @@
       <workItem from="1573110568277" duration="1832000" />
       <workItem from="1573112428866" duration="4848000" />
       <workItem from="1573131250774" duration="3359000" />
+      <workItem from="1573312646997" duration="455000" />
+      <workItem from="1573313437872" duration="8597000" />
     </task>
     <servers />
   </component>

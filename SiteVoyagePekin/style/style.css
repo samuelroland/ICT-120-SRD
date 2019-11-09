@@ -110,4 +110,26 @@ label{
 
 table input{
     width: 100%;
+
+}
+table input:focus{
+    border: solid 2px darkgreen;
+    border-collapse: revert;
+}
+
+.emptycell{
+    background-color: yellow;
+}
+
+.notaninteger{
+    background-color: darkred;
+}
+
+.changepossible{
+    border: solid 2px green;
+}
+
+td{
+    /*Hauteur des lignes du tableau*/
+    line-height: 10px;
 }

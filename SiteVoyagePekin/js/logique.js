@@ -7,6 +7,27 @@ prenom.addEventListener("click", prenomclick)
 nom.addEventListener("click", prenomclick)
 age.addEventListener("click", prenomclick)
 
+
+document.addEventListener("DOMContentLoaded", init)
+
+function init() {
+    //Désactivation des boutons:
+    bnDelete.disabled = true
+    bnCancel.disabled = true
+
+    //Pour faire des test sur le tableau:
+    newrow()
+    newrow()
+    newrow()
+    newrow()
+    newrow()
+    newrow()
+    newrow()
+    activeedition()
+
+
+}
+
 //constantes valeurs chars spéciaux:
 flhautbas = "&varr;"
 flhaut = "&uarr;"
@@ -40,7 +61,6 @@ function newrow() {
     zonecols = document.getElementsByTagName("tbody")[0]
     row = document.createElement("tr")
 
-
     zonecols.appendChild(row)
     for (i = 0; i < tableau.rows[0].cells.length; i++) {
         cell = document.createElement("td")
@@ -49,12 +69,44 @@ function newrow() {
         cell.innerText = (cell.id)
         cell.style.height = 10
 
+        //si c'est cellule dans la colonne age, on ajoute la classe Age:
+        if (i === 3){
+            cell.classList.add("age")
+        }
+
         //Ecraser par une checkbox
-        if (cell.tHead.innerText=="Sélection"){
-            cell.innerText = "salut"
+        if (i == tableau.rows[0].cells.length - 1) {
+            cell.innerHTML = ""
+            inp = document.createElement("input")
+            inp.type = "checkbox"
+            cell.appendChild(inp)
+
         }
     }
 
+}
+
+function checkcontent(event){
+    inpsource= event.target
+    console.log("texte a changé.")
+    //Enlever les espaces au début et à la fin et aussi si il y a un espace seul. sera donc vide.
+    inpsource.value = inpsource.value.trim()
+    listeclasse = inpsource.parentNode.classList.toString()
+    if (listeclasse.indexOf("age")!=-1){
+        console.log("contient la classe age")
+        if (isNaN(inpsource.value)==false){
+            inpsource.classList.add("notaninteger")
+        }
+    }else {
+        //Si c'est vide, on ajoute la classe qui met en jaune emptycell:
+        if (inpsource.value==""){
+            inpsource.classList.add("emptycell")
+        }else{
+
+            inpsource.classList.remove("emptycell")
+        }
+
+    }
 }
 
 var nbslinetbl
@@ -67,13 +119,6 @@ function updateinfostable() {
 
 console.log(document.getElementsByTagName("input"))
 
-submit.addEventListener("click", gerercolonnes)
-
-function gerercolonnes() {
-    submit.style.backgroundColor = red
-    tableau.rows[0].cells.delete();
-}
-
 active = false
 bnactiveredition.addEventListener("click", activeedition)
 intrapathstudent = "https://intranet.cpnv.ch/etudiants/"
@@ -81,39 +126,54 @@ intrapathstudent = "https://intranet.cpnv.ch/etudiants/"
 function activeedition() {
     bnactiveredition.disabled = true
     bnSave.disabled = false
+    bnCancel.disabled = false
     tds = tableau.getElementsByTagName("td")
     tableau.classList.remove("table", "table-hover", "table-bordered", "table-striped")
+    bnDelete.disabled = false
 
     for (nbline = 0; nbline < cortable.children.length; nbline++) {
         row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
         for (nbcol = 0; nbcol < row.children.length; nbcol++) {
             cell = row.children[nbcol]
+            //si la colonne est autre Prénom, que Nom ou Age. On ne doit pas pouvoir modifier Acronyme intranet et sélection.
+            if (nbcol < tableau.rows[0].cells.length - 3) {
+                inp = document.createElement("input")
+                inp.type = "text"
+                inp.value = cell.innerText
+                cell.innerText = ""
+                cell.appendChild(inp)
 
-            inp = document.createElement("input")
-            inp.type = "text"
-            inp.value = cell.innerText
-            cell.innerText = ""
-            cell.appendChild(inp)
+                //Evenement change pour vérifier le contenu des input:
+                inp.addEventListener("change", checkcontent)
 
-
+                //Bordure verte pour dire que c'est modifiable.
+                cell.classList.add("changepossible")
+            }
         }
     }
-
-
 }
 
 bnSave.addEventListener("click", save)
 
 function save() {
+
     bnactiveredition.disabled = false
     bnSave.disabled = true
+    bnDelete.disabled = true
+    bnCancel.disabled = true
     tableau.classList.add("table", "table-hover", "table-bordered", "table-striped")
+    //enlever la bordure verte car on ne modifie plus.
+    cell.classList.remove("changepossible")
 
     for (nbline = 0; nbline < cortable.children.length; nbline++) {
         row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
         for (nbcol = 0; nbcol < row.children.length; nbcol++) {
-            cell = row.children[nbcol]
-            cell.innerHTML = cell.firstChild.value
+
+            if (nbcol < tableau.rows[0].cells.length - 3) {   //seulement si ne fait pas partie des 3 dernières colonnes.
+                cell = row.children[nbcol]//cell devient la cellule en cours.
+                cell.innerHTML = cell.firstChild.value  //on remplace son contenu par la value de son enfant input
+            }
+
         }
     }
 }
