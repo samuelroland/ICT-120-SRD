@@ -3,11 +3,17 @@ Projet: Style CSS du site du voyage à Pékin, page participants uniquement
 Auteur: Samuel Roland
 Date: octobre-novembre 2019
 */
-body{
-    width: 95%;
+body {
+    width: 100%;
     position: absolute;
-    margin: auto;
-    height: 800px;
+    padding: 2%;
+    height: 100%;
+    border: solid 3px deeppink;
+}
+
+header {
+    width: 100%;
+
 }
 
 #chkPrenom {
@@ -18,36 +24,51 @@ body{
     font-size: 15px;
     text-align: center;
 }
-.chk{
+
+.chk {
 
 }
+.bigtxt {
+    font-size: 30px;
+}
 #logo {
-    width: 10%;
+
     height: 50px;
     background-color: whitesmoke;
+    float: left;
 }
 
 #links {
-    width: 90%;
+
     height: 50px;
     background-color: red;
     text-align: right;
+    float: right;
 
 }
 
 #menu {
     width: 100%;
-
-    background-color: green;
-
+    margin: auto;
+    height: 60px;
+    border: solid 3px blue;
+background-color: #1c7430;
 }
 
 #content {
     width: 100%;
-    height: 500px;
+    height: auto;
     background-color: pink;
     padding: 10px;
-    margin: 5px;
+
+}
+
+#optaff {
+
+}
+
+#infoedit {
+
 }
 
 #logocpnv {
@@ -60,11 +81,26 @@ p {
     font-size: 18px;
 }
 
+.centpourcent {
+    width: 100%;
+}
+
+#avanttableau {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+    background-color: #00b6ff;
+    width: 100%;
+}
+
+#zonetableau {
+    padding-bottom: 5px;
+    padding-top: 5px;
+    background-color: #1f6eff;
+}
+
 #tableau {
-    width: 80%;
-    margin: auto;
-    border: solid green 1px;
-    border-collapse: collapse;
+    width: 100%;
 }
 
 td, th {
@@ -78,58 +114,62 @@ th {
 #testtxtbox {
     color: black;
 }
+
 #testtxtbox:focus {
     border: solid black 1px;
 }
 
-.backgnd{
-    background-color: black;
-}
-
-#bnactiveredition{
+#bnactiveredition {
 
     float: right;
 }
 
-label{
-   margin-left: 5px;
-   margin-right: 5px;
+label {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
-#btnlist{
+#btnlist {
     text-align: right;
 }
 
-.showmodifiable:hover{
+.showmodifiable:hover {
     background-color: lightgrey;
 
 }
-.showmodifiable{
+
+.showmodifiable {
     background: red;
 }
 
-table input{
+table input {
     width: 100%;
 
 }
-table input:focus{
+
+table input:focus {
     border: solid 2px darkgreen;
     border-collapse: revert;
 }
 
-.emptycell{
+.emptycell {
     background-color: yellow;
 }
 
-.notaninteger{
+.notaninteger {
     background-color: darkred;
 }
 
-.changepossible{
+.changepossible {
     border: solid 2px green;
 }
 
-td{
+td {
     /*Hauteur des lignes du tableau*/
     line-height: 10px;
+}
+
+.bn {
+ background-color: red;
+    width: 20%;
 }

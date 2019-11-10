@@ -24,19 +24,19 @@ Date: octobre-novembre 2019
     <script src="js/logique.js"></script>
 </head>
 <body>
-<header class="row">
-    <div id="logo" class="col-3">
+<header class="">
+    <div id="logo" class="col-lg-2 col-md-3 col-sm-4 bigtxt">
         <img id="logocpnv" src="img/logocpnv.png" alt="">
     </div>
-    <div id="links" class="col-9"><a href="https://www.cpnv.ch">Site du CPNV</a> | <a
+    <div id="links" class="col-10 col-md-9 col-sm-8 bigtxt"><a href="https://www.cpnv.ch">Site du CPNV</a> | <a
             href="https://www.facebook.com/cpnv">Page Facebook du voyage</a></div>
 </header>
-<div id="menu" class="row">
-    <div class="col-2 backgnd"><a href="index.html">Accueil</a></div>
-    <div class="col-2 backgnd"><a href="participants.html">Participants</a></div>
-    <div class="col-2 backgnd"><a href="transports.html">Transports</a></div>
-    <div class="col-2 backgnd"><a href="activites.html">Activités</a></div>
-    <div class="col-2 backgnd"><a href="hebergemement.html">Hébergement</a></div>
+<input id="menu" class=" btn-group bg-success bigtxt">
+    <input type="button" class="col-2 btn bn"><a href="index.html">Accueil</a>
+    <input type="button"class="col-2 btn bn"><a href="participants.html">Participants</a>
+    <input type="button" class="col-2 btn bn"><a href="transports.html">Transports</a>
+    <input type="button" class="col-2 btn bn"><a href="activites.html">Activités</a>
+    <input type="button" class="col-2 btn bn"><a href="hebergemement.html">Hébergement</a>
 </div>
 <div id="content">
     <h1 class="center">Gestion des participants</h1>
@@ -49,49 +49,61 @@ Date: octobre-novembre 2019
     </p>
 
     <!-- Options de l'affichage -->
-    <div id="optaff ">
-        <h5>Options de l'affichage</h5>
+    <div class="container centpourcent">
+        <div id="avanttableau" class="row">
+            <div id="optaff" class="col-lg-5">
+                <h5>Options de l'affichage</h5>
 
-        <p>Les colonnes</p>
-        <input type="checkbox" name="chkPrenom" id="chkPrenom" checked>
-        <label for="chkPrenom">Prénom</label><br>
-        <input type="checkbox" class="chk" name="chkNom" id="chkNom" checked>
-        <label for="chkNom">Nom</label><br>
-        <input type="checkbox" class="chk" name="chkAge" id="chkAge" checked>
-        <label for="chkAge">Age</label> <br>
-        <input type="checkbox" class="chk" name="chkAcro" id="chkAcro" checked>
-        <label for="chkAcro">Acronyme (généré)</label> <br>
-        <input type="checkbox" class="chk" name="chkIntra" id="chkIntra" checked>
-        <label for="chkIntra">Page intranet</label> <br>
-        <input type="checkbox" class="chk" name="chkSelect" id="chkSelect" checked>
-        <label for="chkSelect">Sélection</label> <br>
-
-    </div>
-    <input type="button" class="center col-4" value="Activer l'édition" id="bnactiveredition">
-    <input type="button" class="center" value="nouvelle ligne" id="bnnewrow">
-    <table id="tableau" class="table table-bordered table-hover table-striped">
-        <thead>
-        <tr>
-            <th id="prenom">Prénom &varr;</th>
-            <th id="nom">Nom &varr;</th>
-            <th id="age">Age &varr;</th>
-            <th id="acro">Acronyme</th>
-            <th id="intra">Page intranet</th>
-            <th id="select">Sélection</th>
-
-        </tr>
-        </thead>
-        <tbody id="cortable">
-
-        </tbody>
-    </table>
-    <div id="btnlist">
-        <input type="button" class="center col-3" value="Envoyer un email à la sélection" id="bnEmail">
-        <input type="button" class="center col-2" value="Supprimer les participants" id="bnDelete" disabled>
-        <input type="button" class="center col-2" value="Annuler" id="bnCancel">
-        <input type="button" class="center col-2" value="Sauvegarder" id="bnSave" disabled>
+                <p>Les colonnes</p>
+                <input type="checkbox" name="chkPrenom" id="chkPrenom" checked>
+                <label for="chkPrenom">Prénom</label><br>
+                <input type="checkbox" class="chk" name="chkNom" id="chkNom" checked>
+                <label for="chkNom">Nom</label><br>
+                <input type="checkbox" class="chk" name="chkAge" id="chkAge" checked>
+                <label for="chkAge">Age</label> <br>
+                <input type="checkbox" class="chk" name="chkAcro" id="chkAcro" checked>
+                <label for="chkAcro">Acronyme (généré)</label> <br>
+                <input type="checkbox" class="chk" name="chkIntra" id="chkIntra" checked>
+                <label for="chkIntra">Page intranet</label> <br>
+                <input type="checkbox" class="chk" name="chkSelect" id="chkSelect" checked>
+                <label for="chkSelect">Sélection</label> <br>
+            </div>
+            <div id="infoedit" class="col-lg-7 d-none">
+                <br>
+                <br>
+                <p>Infos à propos de l'édition: <br>vert = colonnes modifiables <br>rouge = invalide <br>jaune =
+                    manquant
+                    <br>Pour trier par ordre alphébetique ou inverse, cliquer sur len-tête de la colonne.</p>
+            </div>
+        </div>
     </div>
 
+    <div id="zonetableau">
+        <input type="button" class="center col-4" value="Activer l'édition" id="bnactiveredition">
+        <input type="button" class="center" value="nouvelle ligne" id="bnnewrow">
+        <table id="tableau" class="table table-bordered table-hover table-striped">
+            <thead>
+            <tr>
+                <th id="prenom">Prénom &varr;</th>
+                <th id="nom">Nom &varr;</th>
+                <th id="age">Age &varr;</th>
+                <th id="acro">Acronyme</th>
+                <th id="intra">Page intranet</th>
+                <th id="select">Sélection</th>
+
+            </tr>
+            </thead>
+            <tbody id="cortable">
+
+            </tbody>
+        </table>
+        <div id="btnlist">
+            <input type="button" class="center col-3" value="Envoyer un email à la sélection" id="bnEmail">
+            <input type="button" class="center col-2" value="Supprimer les participants" id="bnDelete" disabled>
+            <input type="button" class="center col-2" value="Annuler" id="bnCancel">
+            <input type="button" class="center col-2" value="Sauvegarder" id="bnSave" disabled>
+        </div>
+    </div>
 
 </div>
 </body>

@@ -146,6 +146,7 @@ function activeedition() {
     tds = tableau.getElementsByTagName("td")
     tableau.classList.remove("table", "table-hover", "table-bordered", "table-striped")
     bnDelete.disabled = false
+    infoedit.classList.remove("d-none")
 
     for (nbline = 0; nbline < cortable.children.length; nbline++) {
         row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
@@ -176,6 +177,7 @@ function save() {
     bnSave.disabled = true
     bnDelete.disabled = true
     bnCancel.disabled = true
+    infoedit.classList.add("d-none")
     tableau.classList.add("table", "table-hover", "table-bordered", "table-striped")
     //enlever la bordure verte car on ne modifie plus.
     cell.classList.remove("changepossible")
