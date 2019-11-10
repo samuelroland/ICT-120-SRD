@@ -164,7 +164,6 @@ function chkclick(event) {
     obj = event.target
     //prendre le nom de la classe en enlever le chk de l
     colclass = obj.name.substr(obj.name.indexOf("chk") + 3).toLowerCase()
-    console.log(colclass)
 
     if (obj.checked === false) {
         for (nbline = 0; nbline < cortable.children.length; nbline++) {
@@ -179,7 +178,6 @@ function chkclick(event) {
         //Recherche dans l'en-tete:
         for (k = 0; k < nbcolumns; k++) {
             th = thead.children[0].children[k]
-            console.log(th.innerHTML)
             //si contient la classe de la colonne qu'on veut cacher
             if (th.classList.contains(colclass)) {
                 th.classList.add("d-none")  //cache la colonne
@@ -217,7 +215,6 @@ function deleteline() {
     for (nbline = 0; nbline < cortable.children.length; nbline++) {
         row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
         cell = row.children[nbcolumns - 1]
-        console.log(cell.id)
         inp = cell.firstChild
         if (inp.type == "checkbox") {
             if (inp.checked == true) {
@@ -231,9 +228,8 @@ function deleteline() {
         }
 
     }
-    reponse = prompt("Voulez vous supprimer les personnes suivantes (oui ou non) ?\n" + listuser)
-    reponse = reponse.toLowerCase()
-    if (reponse == "oui") {
+
+    if (confirm("Voulez vous supprimer les personnes suivantes (oui ou non) ?\n" + listuser)) {
         candelete = true
     } else {
         candelete = false
@@ -241,7 +237,6 @@ function deleteline() {
     for (nbline = 0; nbline < cortable.children.length; nbline++) {
         row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
         cell = row.children[nbcolumns - 1]
-        console.log(cell.id)
         inp = cell.firstChild
         if (inp.type == "checkbox") {
             if (inp.checked == true) {
@@ -255,9 +250,12 @@ function deleteline() {
                 }
             }
         }
-
-
     }
+    //une fois que ca a été supprimé, on avertit l'utilisateur que ca a réussi.
+    if (candelete==true){
+        alert("Suppression réussie !")
+    }
+
 }
 
 function sendemail() {
@@ -317,7 +315,6 @@ function checkcontent(event) {  //Vérifier le contenu des champs input + géné
             if (isNaN(inpsource.value.toString()) == true) {    //vérifier si c'est un nombre
                 if (listeclasses.indexOf("notanumber") == -1) {//si il n'y a pas déjà la classe
                     inpsource.classList.add("notanumber")
-                    console.log("mis sur not an integer")
                     nberrorsofdata++
                 }
 
@@ -325,7 +322,6 @@ function checkcontent(event) {  //Vérifier le contenu des champs input + géné
                 if (listeclasses.indexOf("notanumber") != -1) {  //si il a la classe donc que c'était faux juste avant.
                     inpsource.classList.remove("notanumber")
                     nberrorsofdata--
-                    console.log("enlevé sur not an integer")
                 }
                 //il faut encore mettre un age positif, alors on remplace par sa valeur absolue
                 inpsource.value = Math.abs(inpsource.value)
@@ -346,7 +342,6 @@ function checkcontent(event) {  //Vérifier le contenu des champs input + géné
         if (listeclasses.indexOf("emptycell") != -1) {
             inpsource.classList.remove("emptycell")
             nberrorsofdata--
-            console.log("enlevé emptycell")
         }
 
     }
