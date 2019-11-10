@@ -252,7 +252,7 @@ function deleteline() {
         }
     }
     //une fois que ca a été supprimé, on avertit l'utilisateur que ca a réussi.
-    if (candelete==true){
+    if (candelete == true) {
         alert("Suppression réussie !")
     }
 
@@ -275,7 +275,7 @@ function sendemail() {
     //On renvoit la page vers le lien mailto avec les adresses, uniquement sil y a des adresses:
     if (adresses != "") {
         window.location.href = "mailto:" + adresses + "?subject=Voyage du CPNV à Pékin"
-    }else{
+    } else {
         alert("Aucune personne sélectionnée")
     }
 
