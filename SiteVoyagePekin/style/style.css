@@ -103,9 +103,8 @@ p {
 }
 
 #zonetableau {
-    padding-bottom: 5px;
-    padding-top: 5px;
-    background-color: #1f6eff;
+    background-color: #fffbfb;
+    padding: 5px;
 }
 
 #tableau {
@@ -194,4 +193,8 @@ td {
 
 #yellowstrong {
     color: yellow;
+}
+.borderactive{
+
+    background-color: lightseagreen;
 }

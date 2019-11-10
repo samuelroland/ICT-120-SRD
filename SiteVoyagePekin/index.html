@@ -29,15 +29,15 @@ Date: octobre-novembre 2019
         <img id="logocpnv" src="img/logocpnv.png" alt="logo du CPNV">
     </div>
     <div id="links" class="col-11 col-md-10 col-sm-9 bigtxt"><a href="https://www.cpnv.ch">Site du CPNV</a> | <a
-            href="https://www.facebook.com/cpnv">Page Facebook du voyage</a>
+            href="https://fr-fr.facebook.com/cpnv.ch/">Page Facebook du voyage</a>
     </div>
 </header>
 <div id="menu" class=" row bg-success bigtxt">
-<div type="button" class="col-2 bn"><a href="index.html">Accueil</a></div>
-<div type="button" class="col-3 bn"><a href="participants.html">Participants</a></div>
-<div type="button" class="col-2 bn"><a href="transports.html">Transports</a></div>
-<div type="button" class="col-2 bn"><a href="activites.html">Activités</a></div>
-<div type="button" class="col-3 bn"><a href="hebergemement.html">Hébergement</a></div>
+    <div type="button" class="col-2 bn"><a href="index.html">Accueil</a></div>
+    <div type="button" class="col-3 bn borderactive"><a href="participants.html">Participants</a></div>
+    <div type="button" class="col-2 bn"><a href="transports.html">Transports</a></div>
+    <div type="button" class="col-2 bn"><a href="activites.html">Activités</a></div>
+    <div type="button" class="col-3 bn"><a href="hebergemement.html">Hébergement</a></div>
 </div>
 <div id="content">
     <h1 class="center">Gestion des participants</h1>
@@ -74,9 +74,9 @@ Date: octobre-novembre 2019
                 <br>
                 <h5>Infos à propos de l'édition:</h5>
                 <p><strong id="greenstrong">vert</strong> = cellules modifiables (pas de modifications sur Acronyme et
-                    Page Intranet générées)<br><strong id="redstrong">rouge</strong> = invalide <br><strong
-                            id="yellowstrong">jaune</strong> =
-                    manquant
+                    Page Intranet générées)
+                    <br><strong id="redstrong">rouge</strong> = donnée invalide
+                    <br><strong id="yellowstrong">jaune</strong> = donnée manquante
                     <br>Pour trier par ordre alphébetique ou inverse, cliquer sur len-tête de la colonne.</p>
             </div>
         </div>
@@ -85,20 +85,20 @@ Date: octobre-novembre 2019
     <div id="zonetableau">
         <input type="button" class="center col-4" value="Activer l'édition" id="bnactiveredition">
         <input type="button" class="center" value="nouvelle ligne" id="bnnewrow">
+        <!-- Tableau des participants -->
         <table id="tableau" class="table table-bordered table-hover table-striped">
-            <thead>
+            <thead id="thead"> <!-- Entete du tableau -->
             <tr>
-                <th id="prenom">Prénom &varr;</th>
-                <th id="nom">Nom &varr;</th>
-                <th id="age">Age &varr;</th>
-                <th id="acro">Acronyme</th>
-                <th id="intra">Page intranet</th>
-                <th id="select">Sélection</th>
-
+                <th id="prenom" class="prenom">Prénom &varr;</th>
+                <th id="nom" class="nom">Nom &varr;</th>
+                <th id="age" class="age">Age &varr;</th>
+                <th id="acro" class="acro">Acronyme</th>
+                <th id="intra" class="intra">Page intranet</th>
+                <th id="select" class="select">Sélection</th>
             </tr>
             </thead>
             <tbody id="cortable">
-
+            <!-- Contenu du tableau, lignes dynamiques -->
             </tbody>
         </table>
         <div id="btnlist">
