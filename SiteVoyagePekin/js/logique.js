@@ -34,15 +34,6 @@ function init() {
     bnDelete.disabled = true
     bnCancel.disabled = true
 
-    //Pour faire des test sur le tableau:
-    newrow()
-    newrow()
-    newrow()
-    newrow()
-    newrow()
-    activeedition()
-
-
 }
 
 //constantes valeurs chars spéciaux:
@@ -64,7 +55,7 @@ function newrow() {
         cell = document.createElement("td")
         cell.id = i + ":" + tableau.rows.length
         row.appendChild(cell)
-        cell.innerText = (cell.id)
+        cell.innerText = ""
         cell.style.height = 10
 
         //si c'est cellule dans la colonne age, on ajoute la classe Age:
@@ -213,24 +204,53 @@ function chkclick(event) {
 
 }
 
+candelete = false
+
 function deleteline() {
+    listuser = ""
     for (nbline = 0; nbline < cortable.children.length; nbline++) {
         row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
-        for (nbcol = 0; nbcol < nbcolumns; nbcol++) {
-            cell = row.children[nbcol]
-            console.log(cell.id)
-            inp = cell.firstChild
-            if (inp.type == "checkbox") {
-                if (inp.checked == true) {
-                    //Supprimer la ligne en prenant le arrière grand parent.
-                    td = inp.parentNode
-                    tr = td.parentNode
-                    tbody = tr.parentNode
+        cell = row.children[nbcolumns - 1]
+        console.log(cell.id)
+        inp = cell.firstChild
+        if (inp.type == "checkbox") {
+            if (inp.checked == true) {
+                td = inp.parentNode
+                tr = td.parentNode
+                listuser += tr.children[0].firstChild.value + " " + tr.children[1].firstChild.value + "\n"
+                tbody = tr.parentNode
+                //Supprimer la ligne en prenant le arrière grand parent.
+
+            }
+        }
+
+    }
+    reponse = prompt("Voulez vous supprimer les personnes suivantes (oui ou non) ?\n" + listuser)
+    reponse = reponse.toLowerCase()
+    if (reponse == "oui") {
+        candelete = true
+    } else {
+        candelete = false
+    }
+    for (nbline = 0; nbline < cortable.children.length; nbline++) {
+        row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
+        cell = row.children[nbcolumns - 1]
+        console.log(cell.id)
+        inp = cell.firstChild
+        if (inp.type == "checkbox") {
+            if (inp.checked == true) {
+                //Supprimer la ligne en prenant le arrière grand parent.
+                td = inp.parentNode
+                tr = td.parentNode
+                tbody = tr.parentNode
+                if (candelete == true) {
                     tbody.removeChild(tr)
+                    nbline -= 1  //il retourne à la ligne d'avant sinon il va louper la ligne qui a remplacé cette qu'il vient de supprimer.
                 }
             }
-
         }
+
+
     }
 }
 
@@ -273,7 +293,7 @@ function checkcontent(event) {  //Vérifier le contenu des champs input + géné
     if (inpsource.parentNode.classList.toString().indexOf("age") != -1) { //si c'est le champ input age
         if (inpsource.value != "") {  //regarder sa valeur seulement si il y a une valeur:
             if (isNaN(inpsource.value.toString()) == true) {    //vérifier si c'est un nombre
-                if (listeclasses.indexOf("notaninteger") == -1){
+                if (listeclasses.indexOf("notaninteger") == -1) {//si il n'y a pas déjà la classe
                     inpsource.classList.add("notaninteger")
                     console.log("mis sur not an integer")
                     nberrorsofdata++
@@ -293,7 +313,8 @@ function checkcontent(event) {  //Vérifier le contenu des champs input + géné
     }
     //Si c'est vide, on ajoute la classe qui met en jaune emptycell:
     if (inpsource.value == "") {    //si c'est vide afficher comme manquant.
-        if (listeclasses.indexOf("emptycell") == -1){
+
+        if (listeclasses.indexOf("emptycell") == -1) {//si il n'y a pas déjà la classe
             inpsource.classList.add("emptycell")
             nberrorsofdata++
         }

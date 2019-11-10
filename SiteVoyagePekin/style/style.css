@@ -156,7 +156,8 @@ table input {
 }
 
 table input:focus {
-    border: solid 2px darkgreen;
+    border: solid 2px black;
+    background-color: lightgrey;
 }
 
 .emptycell {
@@ -168,7 +169,7 @@ table input:focus {
 }
 
 .changepossible {
-    border: solid 2px green;
+    border: solid 3px green;
 }
 
 td {
