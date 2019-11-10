@@ -7,7 +7,7 @@ body {
     width: 100%;
     position: absolute;
     padding: 2%;
-    height: 100%;
+    height: auto;
     border: solid 3px deeppink;
 }
 
@@ -21,44 +21,56 @@ header {
 }
 
 .center, thead {
-    font-size: 15px;
+
     text-align: center;
 }
 
 .chk {
 
 }
+
 .bigtxt {
     font-size: 30px;
 }
-#logo {
 
-    height: 50px;
-    background-color: whitesmoke;
+#logo {
     float: left;
 }
 
-#links {
-
+#logocpnv {
     height: 50px;
-    background-color: red;
+
+}
+#links {
+    height: 50px;
     text-align: right;
     float: right;
-
 }
 
 #menu {
     width: 100%;
     margin: auto;
-    height: 60px;
-    border: solid 3px blue;
-background-color: #1c7430;
+    height: 50px;
+    background-color: red;
+    margin-bottom: 5px;
+}
+
+#menu a:hover {
+    color: lightgrey;
+}
+
+header a:hover {
+    color: brown;
+}
+
+#menu a, header a {
+    color: darkslategrey;
 }
 
 #content {
     width: 100%;
     height: auto;
-    background-color: pink;
+    background-color: lightgrey;
     padding: 10px;
 
 }
@@ -68,13 +80,10 @@ background-color: #1c7430;
 }
 
 #infoedit {
-
+    background-color: lightgrey;
+    margin: 10px;
 }
 
-#logocpnv {
-    height: 50px;
-
-}
 
 p {
     text-align: left;
@@ -89,7 +98,7 @@ p {
     padding-bottom: 5px;
     padding-top: 5px;
     margin-bottom: 5px;
-    background-color: #00b6ff;
+    background-color: #fffbfb;
     width: 100%;
 }
 
@@ -149,7 +158,6 @@ table input {
 
 table input:focus {
     border: solid 2px darkgreen;
-    border-collapse: revert;
 }
 
 .emptycell {
@@ -170,6 +178,20 @@ td {
 }
 
 .bn {
- background-color: red;
-    width: 20%;
+    text-align: center;
+    background-color: transparent;
+    border: groove 2px darkolivegreen;
+}
+
+
+#greenstrong {
+    color: green;
+}
+
+#redstrong {
+    color: red;
+}
+
+#yellowstrong {
+    color: yellow;
 }

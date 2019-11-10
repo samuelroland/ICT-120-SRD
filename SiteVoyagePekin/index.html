@@ -25,18 +25,19 @@ Date: octobre-novembre 2019
 </head>
 <body>
 <header class="">
-    <div id="logo" class="col-lg-2 col-md-3 col-sm-4 bigtxt">
-        <img id="logocpnv" src="img/logocpnv.png" alt="">
+    <div id="logo" class="col-lg-1 col-md-2 col-sm-3 bigtxt">
+        <img id="logocpnv" src="img/logocpnv.png" alt="logo du CPNV">
     </div>
-    <div id="links" class="col-10 col-md-9 col-sm-8 bigtxt"><a href="https://www.cpnv.ch">Site du CPNV</a> | <a
-            href="https://www.facebook.com/cpnv">Page Facebook du voyage</a></div>
+    <div id="links" class="col-11 col-md-10 col-sm-9 bigtxt"><a href="https://www.cpnv.ch">Site du CPNV</a> | <a
+            href="https://www.facebook.com/cpnv">Page Facebook du voyage</a>
+    </div>
 </header>
-<input id="menu" class=" btn-group bg-success bigtxt">
-    <input type="button" class="col-2 btn bn"><a href="index.html">Accueil</a>
-    <input type="button"class="col-2 btn bn"><a href="participants.html">Participants</a>
-    <input type="button" class="col-2 btn bn"><a href="transports.html">Transports</a>
-    <input type="button" class="col-2 btn bn"><a href="activites.html">Activités</a>
-    <input type="button" class="col-2 btn bn"><a href="hebergemement.html">Hébergement</a>
+<div id="menu" class=" row bg-success bigtxt">
+<div type="button" class="col-2 bn"><a href="index.html">Accueil</a></div>
+<div type="button" class="col-3 bn"><a href="participants.html">Participants</a></div>
+<div type="button" class="col-2 bn"><a href="transports.html">Transports</a></div>
+<div type="button" class="col-2 bn"><a href="activites.html">Activités</a></div>
+<div type="button" class="col-3 bn"><a href="hebergemement.html">Hébergement</a></div>
 </div>
 <div id="content">
     <h1 class="center">Gestion des participants</h1>
@@ -51,7 +52,7 @@ Date: octobre-novembre 2019
     <!-- Options de l'affichage -->
     <div class="container centpourcent">
         <div id="avanttableau" class="row">
-            <div id="optaff" class="col-lg-5">
+            <div id="optaff" class="col-lg-4">
                 <h5>Options de l'affichage</h5>
 
                 <p>Les colonnes</p>
@@ -64,14 +65,17 @@ Date: octobre-novembre 2019
                 <input type="checkbox" class="chk" name="chkAcro" id="chkAcro" checked>
                 <label for="chkAcro">Acronyme (généré)</label> <br>
                 <input type="checkbox" class="chk" name="chkIntra" id="chkIntra" checked>
-                <label for="chkIntra">Page intranet</label> <br>
+                <label for="chkIntra">Page intranet (générée)</label> <br>
                 <input type="checkbox" class="chk" name="chkSelect" id="chkSelect" checked>
                 <label for="chkSelect">Sélection</label> <br>
             </div>
             <div id="infoedit" class="col-lg-7 d-none">
                 <br>
                 <br>
-                <p>Infos à propos de l'édition: <br>vert = colonnes modifiables <br>rouge = invalide <br>jaune =
+                <h5>Infos à propos de l'édition:</h5>
+                <p><strong id="greenstrong">vert</strong> = cellules modifiables (pas de modifications sur Acronyme et
+                    Page Intranet générées)<br><strong id="redstrong">rouge</strong> = invalide <br><strong
+                            id="yellowstrong">jaune</strong> =
                     manquant
                     <br>Pour trier par ordre alphébetique ou inverse, cliquer sur len-tête de la colonne.</p>
             </div>
