@@ -28,11 +28,10 @@ function init() {
     bnDelete.addEventListener("click", deleteline)
     bnEmail.addEventListener("click", sendemail)
 
-    tableau.addEventListener("click", popoveropen)
-
     //Désactivation des boutons:
     bnDelete.disabled = true
     bnCancel.disabled = true
+    bnnewrow.disabled = true
 
 }
 
@@ -97,7 +96,9 @@ function newrow() {
 }
 
 function activeedition() {
+    //Changer l'apparence des boutons et du tableau et de infoedit:
     active = true
+    bnnewrow.disabled = false
     bnactiveredition.disabled = true
     bnSave.disabled = false
     bnCancel.disabled = false
@@ -124,7 +125,7 @@ function activeedition() {
                 inp.addEventListener("change", checkcontent)  //quand le contenu change
 
                 //Bordure verte pour dire que c'est modifiable.
-                cell.classList.add("changepossible")
+                cell.firstChild.classList.add("changepossible")
             }
         }
     }
@@ -132,16 +133,16 @@ function activeedition() {
 
 function save() {
     if (nberrorsofdata == 0) {   //il faut sauver que si il n'y a plus d'erreurs.
-        resteerreurinfo.innerText=""
+        //Changer l'apparence des boutons et du tableau et de infoedit:
+        bnnewrow.disabled = true
+        resteerreurinfo.innerText = ""
         active = false
         bnactiveredition.disabled = false
         bnSave.disabled = true
         bnDelete.disabled = true
         bnCancel.disabled = true
         infoedit.classList.add("d-none")
-        tableau.classList.add("table", "table-hover", "table-bordered", "table-striped")
-        //enlever la bordure verte car on ne modifie plus.
-        cell.classList.remove("changepossible")
+        tableau.classList.add("table", "table-hover", "table-bordered", "table-striped")    //les styles lors de la modification vont disparaitre.
 
         for (nbline = 0; nbline < cortable.children.length; nbline++) {
             row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
@@ -173,7 +174,6 @@ function chkclick(event) {
                 if (cell.classList.contains(colclass)) {
                     cell.classList.add("d-none")
                 }
-
             }
         }
         //Recherche dans l'en-tete:
@@ -261,17 +261,33 @@ function deleteline() {
 }
 
 function sendemail() {
-    adresses = tableau.rows[1].cells[0].value + "." + tableau.rows[1].cells[1].value + "@cpnv.ch"
-    //si des cases sont cochées dans le tableau
-    window.location.href = "mailto:" + adresses + "?subject=Voyage du CPNV à Pékin"
+
+    adresses = ""
+    for (nbline = 0; nbline < cortable.children.length; nbline++) {
+        row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
+        cell = row.children[nbcolumns - 1]
+        inp = cell.firstChild
+        if (inp.type == "checkbox") {
+            if (inp.checked == true) {//si la case est cochée dans le tableau
+
+                adresses += row.children[0].firstChild.value + "." + row.children[1].firstChild.value + "@cpnv.ch; "
+            }
+        }
+    }
+    //On renvoit la page vers le lien mailto avec les adresses, uniquement sil y a des adresses:
+    if (adresses != "") {
+        window.location.href = "mailto:" + adresses + "?subject=Voyage du CPNV à Pékin"
+    }else{
+        alert("Aucune personne sélectionnée")
+    }
+
 }
 
 function prenomclick(event) {
 
-    obj = event.target //prendre l'objet qui a déclenché l'évenement.
-    //obj.innerHTML = obj.innerHTML.substring(0, obj.innerHTML.indexOf(" ") + 1)
-    //Ajouter flèche hautbas, haut, bas.
+    obj = event.target  //prendre l'objet qui a déclenché l'évenement.
 
+    //Chander de flèches: flèche hautbas, haut, bas.
     if (obj.innerHTML.includes(flbas)) {
         obj.innerHTML = obj.innerHTML.substring(0, obj.innerHTML.indexOf(" ") + 1)
         obj.innerHTML += flhautbas
@@ -299,15 +315,15 @@ function checkcontent(event) {  //Vérifier le contenu des champs input + géné
     if (inpsource.parentNode.classList.toString().indexOf("age") != -1) { //si c'est le champ input age
         if (inpsource.value != "") {  //regarder sa valeur seulement si il y a une valeur:
             if (isNaN(inpsource.value.toString()) == true) {    //vérifier si c'est un nombre
-                if (listeclasses.indexOf("notaninteger") == -1) {//si il n'y a pas déjà la classe
-                    inpsource.classList.add("notaninteger")
+                if (listeclasses.indexOf("notanumber") == -1) {//si il n'y a pas déjà la classe
+                    inpsource.classList.add("notanumber")
                     console.log("mis sur not an integer")
                     nberrorsofdata++
                 }
 
             } else {
-                if (listeclasses.indexOf("notaninteger") != -1) {  //si il a la classe donc que c'était faux juste avant.
-                    inpsource.classList.remove("notaninteger")
+                if (listeclasses.indexOf("notanumber") != -1) {  //si il a la classe donc que c'était faux juste avant.
+                    inpsource.classList.remove("notanumber")
                     nberrorsofdata--
                     console.log("enlevé sur not an integer")
                 }
@@ -372,18 +388,4 @@ function checkcontent(event) {  //Vérifier le contenu des champs input + géné
     }
     //On met initials dans la case 3 acronyme
     row.children[3].innerHTML = initials
-
-
-}
-
-function popoveropen() {
-
-}
-
-var nbslinetbl
-var nbscolstbl
-
-function updateinfostable() {
-    nbslinetbl = tableau.rows.length
-    nbscolstbl = tableau.rows[0].cells.length
 }
