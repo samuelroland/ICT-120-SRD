@@ -121,7 +121,7 @@ function activeedition() {
                 }
 
                 //Evenement change pour vérifier le contenu des input:
-                inp.addEventListener("change", checkcontent)
+                inp.addEventListener("change", checkcontent)  //quand le contenu change
 
                 //Bordure verte pour dire que c'est modifiable.
                 cell.classList.add("changepossible")
@@ -131,26 +131,32 @@ function activeedition() {
 }
 
 function save() {
-    active = false
-    bnactiveredition.disabled = false
-    bnSave.disabled = true
-    bnDelete.disabled = true
-    bnCancel.disabled = true
-    infoedit.classList.add("d-none")
-    tableau.classList.add("table", "table-hover", "table-bordered", "table-striped")
-    //enlever la bordure verte car on ne modifie plus.
-    cell.classList.remove("changepossible")
+    if (nberrorsofdata == 0) {   //il faut sauver que si il n'y a plus d'erreurs.
+        resteerreurinfo.innerText=""
+        active = false
+        bnactiveredition.disabled = false
+        bnSave.disabled = true
+        bnDelete.disabled = true
+        bnCancel.disabled = true
+        infoedit.classList.add("d-none")
+        tableau.classList.add("table", "table-hover", "table-bordered", "table-striped")
+        //enlever la bordure verte car on ne modifie plus.
+        cell.classList.remove("changepossible")
 
-    for (nbline = 0; nbline < cortable.children.length; nbline++) {
-        row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
-        for (nbcol = 0; nbcol < nbcolumns; nbcol++) {
+        for (nbline = 0; nbline < cortable.children.length; nbline++) {
+            row = cortable.children[nbline]    //prend la colonne row avec chaque enfant.
+            for (nbcol = 0; nbcol < nbcolumns; nbcol++) {
 
-            if (nbcol < tableau.rows[0].cells.length - 3) {   //seulement si ne fait pas partie des 3 dernières colonnes.
-                cell = row.children[nbcol]  //cell devient la cellule en cours.
-                cell.innerHTML = cell.firstChild.value  //on remplace son contenu par la value de son enfant input
+                if (nbcol < tableau.rows[0].cells.length - 3) {   //seulement si ne fait pas partie des 3 dernières colonnes.
+                    cell = row.children[nbcol]  //cell devient la cellule en cours.
+                    cell.innerHTML = cell.firstChild.value  //on remplace son contenu par la value de son enfant input
+                }
             }
         }
+    } else {
+        resteerreurinfo.innerText = "Il reste des erreurs à gérer !"
     }
+
 }
 
 function chkclick(event) {
