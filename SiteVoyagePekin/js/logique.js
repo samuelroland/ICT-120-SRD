@@ -28,6 +28,7 @@ function init() {
     bnDelete.addEventListener("click", deleteline)
     bnEmail.addEventListener("click", sendemail)
 
+    tableau.addEventListener("click", popoveropen)
 
     //Désactivation des boutons:
     bnDelete.disabled = true
@@ -52,6 +53,7 @@ active = false
 const nbcolumns = 6
 intrapathstudent = "https://intranet.cpnv.ch/etudiants/"
 
+nberrorsofdata = 0
 
 function newrow() {
     zonecols = document.getElementsByTagName("tbody")[0]
@@ -266,15 +268,23 @@ function checkcontent(event) {  //Vérifier le contenu des champs input + géné
     //Enlever les espaces au début et à la fin et aussi si il y a un espace seul. sera donc vide.
     inpsource.value = inpsource.value.trim()
     row = inpsource.parentNode.parentNode
-    listeclasses = inpsource.parentNode.classList.toString()
+    listeclasses = inpsource.classList.toString()
 
-    if (listeclasses.indexOf("age") != -1) { //si c'est le champ input age
-        //vérifier si c'est un nombre
+    if (inpsource.parentNode.classList.toString().indexOf("age") != -1) { //si c'est le champ input age
         if (inpsource.value != "") {  //regarder sa valeur seulement si il y a une valeur:
-            if (isNaN(inpsource.value.toString()) == true) {
-                inpsource.classList.add("notaninteger")
+            if (isNaN(inpsource.value.toString()) == true) {    //vérifier si c'est un nombre
+                if (listeclasses.indexOf("notaninteger") == -1){
+                    inpsource.classList.add("notaninteger")
+                    console.log("mis sur not an integer")
+                    nberrorsofdata++
+                }
+
             } else {
-                inpsource.classList.remove("notaninteger")
+                if (listeclasses.indexOf("notaninteger") != -1) {  //si il a la classe donc que c'était faux juste avant.
+                    inpsource.classList.remove("notaninteger")
+                    nberrorsofdata--
+                    console.log("enlevé sur not an integer")
+                }
                 //il faut encore mettre un age positif, alors on remplace par sa valeur absolue
                 inpsource.value = Math.abs(inpsource.value)
             }
@@ -283,15 +293,33 @@ function checkcontent(event) {  //Vérifier le contenu des champs input + géné
     }
     //Si c'est vide, on ajoute la classe qui met en jaune emptycell:
     if (inpsource.value == "") {    //si c'est vide afficher comme manquant.
-        inpsource.classList.add("emptycell")
+        if (listeclasses.indexOf("emptycell") == -1){
+            inpsource.classList.add("emptycell")
+            nberrorsofdata++
+        }
+
     } else {
-        inpsource.classList.remove("emptycell")
+
+        if (listeclasses.indexOf("emptycell") != -1) {
+            inpsource.classList.remove("emptycell")
+            nberrorsofdata--
+            console.log("enlevé emptycell")
+        }
+
     }
 
     //Générer l'acronyme sur cette ligne.
     //Prendre les deux input prénom et nom
     inpprenom = row.children[0].firstChild
     inpnom = row.children[1].firstChild
+
+    //Afficher le nombre d'erreurs restantes:
+    if (nberrorsofdata != 0) {
+        infoerreurdata.innerText = nberrorsofdata + " erreur(s) à corriger"
+
+    } else {
+        infoerreurdata.innerText = ""
+    }
 
     if (inpprenom.value != "" && inpnom.value != "") {    //si nom est prénom sont remplis
         //Prendre les 3 lettres pour former les initiales. première du prénom + première et dernière du nom
@@ -321,6 +349,9 @@ function checkcontent(event) {  //Vérifier le contenu des champs input + géné
 
 }
 
+function popoveropen() {
+
+}
 
 var nbslinetbl
 var nbscolstbl
