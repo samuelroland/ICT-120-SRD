@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!--
+Programme: Examen ICT120
+Samuel Roland
+15.11.2019
+ -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inscription</title>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <h2>Inscription au tchoukball club Ste-Croix</h2>
+    <form action="motivation.html">
+        <label>Prénom</label><input type="text" name="txtFirstName" id="txtFirstName"><div id="firstnameshort">Invalide: trop court</div>
+        <label>Nom</label><input type="text" name="txtLastName" id="txtLastName"><div id="lastnameshort">Invalide: trop court</div>
+        <label>Mot de passe</label><input id="pwd1" type="password"><div id="pwsshort">Invalide: minimum 6 caractères</div>
+        <label>Confirmation</label><input id="pwd2" type="password"><div id="pwdiff">Invalide: différent</div>
+        <input id="submit" type="submit" value="Envoyer">
+    </form>
+</body>
+</html>

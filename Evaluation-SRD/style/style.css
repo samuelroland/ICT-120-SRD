@@ -1,0 +1,11 @@
+/*
+Programme: Examen ICT120
+Samuel Roland
+15.11.2019
+
+*/
+
+/*Cacher des élements avec cette classe en JS*/
+.cache{
+    display: none;
+}

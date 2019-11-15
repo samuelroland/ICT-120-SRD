@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+Programme: Examen ICT120
+Samuel Roland
+15.11.2019
+
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Motivation</title>
+    <script src="js/motivation.js"></script>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<div class="container-fluid flex-column">
+    <h2>Bonjour <span id="firstnamespan">(prénom)</span> <span id="lastnamespan">(nom)</span></h2>
+    <form action="thankyou.html">
+        <label>Veuillez décrire ci-dessous votre motivation à nous rejoindre, en au minimum 30 caractères et au maximum 144</label><br>
+        <textarea id="txtarea" cols="60" rows="3"></textarea>
+        <div id="tooshortdesc">Cette description est trop courte</div>
+        <div id="charsrestants">Il vous reste 144 caractères</div>
+        <input type="submit" id="submit" value="Ok">
+    </form>
+</div>
+</body>
+
+</html>
